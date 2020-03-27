@@ -5,6 +5,21 @@
 
 ### backups ###
 
+ # possibly convert to script at some point
+   # check for differences in files in order to determine wether to send message to push changes to github
+    # above=$(diff -q [file source] [file backup])
+    # if [[ $above == *differ ]]
+    # then
+    #     diff=true
+    # fi
+   # for all files
+    # if [[ "$true" ]]
+    # then
+    #     cp [file source] [file backup] # <- do this for all files
+    #     notify-send "Files in ~/Dropbox/dotfiles/ have been updated. Please push changes to github."
+    # fi
+ # do same thing for ~/Scripts files
+
  ## dotfiles
 # i3 config
 exec cp ~/.config/i3/config ~/Dropbox/dotfiles/i3/config
@@ -16,6 +31,9 @@ exec cp -rf ~/Scripts/ ~/Dropbox/dotfiles/Scripts
 exec cp ~/.bashrc ~/Dropbox/dotfiles/.bashrc
 # .vimrc
 exec cp ~/.vimrc ~/Dropbox/dotfiles/.vimrc
+
+ ## notify
+exec notify-send "Don't forget to push your changes to github."
 
 
 
@@ -84,6 +102,9 @@ bindsym Pause exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify
 bindsym Control+Right exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
  # previous
 bindsym Control+Left exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+ ## htop
+bindsym Control+shift+Escape exec --no-startup-id st -e htop
 
 
 
