@@ -5,35 +5,11 @@
 
 ### backups ###
 
- # possibly convert to script at some point
-   # check for differences in files in order to determine wether to send message to push changes to github
-    # above=$(diff -q [file source] [file backup])
-    # if [[ $above == *differ ]]
-    # then
-    #     diff=true
-    # fi
-   # for all files
-    # if [[ "$true" ]]
-    # then
-    #     cp [file source] [file backup] # <- do this for all files
-    #     notify-send "Files in ~/Dropbox/dotfiles/ have been updated. Please push changes to github."
-    # fi
- # do same thing for ~/Scripts files
-
  ## dotfiles
-# i3 config
-exec cp ~/.config/i3/config ~/Dropbox/dotfiles/i3/config
-# .Xresources (colorscheme)
-exec cp ~/.Xresources ~/Dropbox/dotfiles/.Xresources
-# ~/Scripts
-exec cp -rf ~/Scripts/ ~/Dropbox/dotfiles/Scripts
-# .bashrc
-exec cp ~/.bashrc ~/Dropbox/dotfiles/.bashrc
-# .vimrc
-exec cp ~/.vimrc ~/Dropbox/dotfiles/.vimrc
+exec --no-startup-id ~/Scripts/backups
 
- ## notify
-exec notify-send "Don't forget to push your changes to github."
+ ## minecraft
+exec --no-startup-id cp -rf ~/.minecraft ~/Dropbox &
 
 
 
