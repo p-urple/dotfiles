@@ -120,12 +120,16 @@ export EDITOR=vim
 
 ### user functions ###
 
+trace(){
+    curl -s -L -D - "$1" -o /dev/null -w '%{url_effective}' | grep -i "Location:"
+}
+
 s(){
     echo "Running the ${1} script..."
     if [[ $1 == aw || $1 == animate-wallpaper ]]
     then
         ~/Scripts/animate-wallpaper "${@:2}"
     else 
-        ~/Scripts/$1
+        ~/Scripts/"$1"
     fi
 }
