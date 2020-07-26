@@ -33,11 +33,10 @@ set $mod Mod4
 font Nitti-Normal:12
 
  ## gaps
-smart_gaps on
+# smart_gaps on
 gaps outer 5
 gaps inner 10
-gaps top +25
-
+gaps top -5
 
 
 ### startup apps ###
@@ -217,17 +216,17 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bar {
-    colors {
-        background #000000
-        statusline #FFFFFF
-        separator  #666666
-
-        focused_workspace  #61A571 #61A571 #282A2E
-        active_workspace   #1D1F21 #1D1F21 #C5C8C6
-        inactive_workspace #373B41 #373B41 #C5C8C6
-        urgent_workspace   #FB1617 #FB1617 #FFFFFF
-        binding_mode       #373B41 #373B41 #C5C8C6
-    }
-        status_command i3status
-}
+# bar {
+#     colors {
+#         background #000000
+#         statusline #FFFFFF
+#         separator  #666666
+# 
+#         focused_workspace  #61A571 #61A571 #282A2E
+#         active_workspace   #1D1F21 #1D1F21 #C5C8C6
+#         inactive_workspace #373B41 #373B41 #C5C8C6
+#         urgent_workspace   #FB1617 #FB1617 #FFFFFF
+#         binding_mode       #373B41 #373B41 #C5C8C6
+#     }
+#         status_command i3status
+# }
