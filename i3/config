@@ -17,7 +17,7 @@ exec --no-startup-id cp -rf ~/.minecraft ~/Dropbox &
  
  ## color
 # class                 border  bground text    indicator child_border
-client.focused          #61A571 #61A571 #C5C8C6 #61A571   #61A571
+client.focused          #61A571 #61A571 #282A2E #61A571   #61A571
 client.focused_inactive #373B41 #373B41 #C5C8C6 #373B41   #373B41
 client.unfocused        #1D1F21 #1D1F21 #C5C8C6 #1D1F21   #1D1F21
 client.urgent           #FB1617 #FB1617 #C5C8C6 #FB1617   #FB1617
@@ -45,7 +45,7 @@ gaps top -5
 exec --no-startup-id ~/.screenlayout/monitors.sh
 
  ## launch script -> launches specfic applications every time the config is reloaded
-exec_always --no-startup-id ~/Scripts/launch
+exec_always ~/Scripts/launch
 
  ## wallpaper
 exec_always feh --bg-scale ~/Pictures/DAMN.png
@@ -63,8 +63,9 @@ exec --no-startup-id nm-applet
 ### keyboard shortcuts ###
 
  ## screenshots
-bindsym Control+shift+3 exec --no-startup-id ~/Scripts/shot.sh
-bindsym Control+Shift+4 exec --no-startup-id ~/Scripts/screenshot.sh
+bindsym Control+shift+3 exec ~/Scripts/shot.sh
+bindsym Control+Shift+4 exec ~/Scripts/screenshot.sh
+bindsym Control+Shift+5 exec ~/Scripts/rd
 
  ## suspend
 #bindsym $mod+l exec betterlockscreen and systemctl suspend
@@ -143,6 +144,9 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+# toggle title bar
+bindsym $mod+t exec ~/Scripts/border-toggle
 
 
 
