@@ -122,6 +122,12 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# swap window monitor
+bindsym $mod+m move container to output right
+
+# swap workspace monitor
+bindsym $mod+Shift+m move workspace to output right
+
 # split in horizontal orientation
 bindsym $mod+h split h
 
