@@ -14,7 +14,7 @@ exec --no-startup-id cp -rf ~/.minecraft ~/Dropbox &
 
 
 ### config ###
- 
+
  ## color
 # class                 border  bground text    indicator child_border
 client.focused          #61A571 #61A571 #282A2E #61A571   #61A571
@@ -38,6 +38,12 @@ gaps outer 5
 gaps inner 10
 gaps top -5
 
+
+
+### window configs ###
+
+ ## floating terminal
+for_window [class="floating"] floating enable
 
 ### startup apps ###
 
@@ -95,6 +101,9 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec "st -f Nitti-Light:size=10"
+
+# start a floating terminal
+bindsym $mod+Shift+Return exec "st -f Nitti-Light:size=10 -class=floating"
 
 # kill focused window
 bindsym $mod+Shift+q kill
