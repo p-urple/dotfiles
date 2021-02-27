@@ -35,7 +35,7 @@ font Nitti-Normal:12
  ## gaps
 # smart_gaps on
 gaps outer 5
-gaps inner 10
+gaps inner 25
 gaps top -5
 
 
@@ -86,15 +86,15 @@ bindsym Control+Right exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 bindsym Control+Left exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
  ## htop
-bindsym Control+shift+Escape exec --no-startup-id st -e htop
+bindsym Control+shift+Escape exec st -class=floating -e htop
 
 
 
 ### misc ###
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym $control+up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym $control+down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym $Control+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym $Control+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -107,6 +107,9 @@ bindsym $mod+Shift+Return exec "st -f Nitti-Light:size=10 -class=floating"
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+BackSpace kill
+# kill all windows on focused workspace
+bindsym $mod+Shift+BackSpace exec ~/Scripts/i3-workspace-kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
