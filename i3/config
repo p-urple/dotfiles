@@ -86,7 +86,7 @@ bindsym Control+Right exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 bindsym Control+Left exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
  ## htop
-bindsym Control+shift+Escape exec st -class=floating -e htop
+bindsym Control+shift+Escape exec st -c floating -e htop
 
 
 
@@ -103,7 +103,7 @@ floating_modifier $mod
 bindsym $mod+Return exec "st -f Nitti-Light:size=10"
 
 # start a floating terminal
-bindsym $mod+Shift+Return exec "st -f Nitti-Light:size=10 -class=floating"
+bindsym $mod+Shift+Return exec "st -f Nitti-Light:size=10 -c floating"
 
 # kill focused window
 bindsym $mod+Shift+q kill
