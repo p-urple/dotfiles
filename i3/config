@@ -48,6 +48,9 @@ for_window [class="floating"] floating enable
 
 ### startup apps ###
 
+ ## greeter
+exec light-locker --lock-on-suspend
+
  ## monitors
 exec --no-startup-id ~/.screenlayout/monitors.sh
 
