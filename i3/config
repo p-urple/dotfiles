@@ -45,6 +45,7 @@ gaps top -5
 
  ## floating terminal
 for_window [class="floating"] floating enable
+for_window [class="VirtualBox Machine"] floating enable
 
 ### startup apps ###
 
