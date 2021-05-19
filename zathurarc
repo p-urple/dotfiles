@@ -1,0 +1,15 @@
+set default-fg '#c5c8c6'
+set default-bg '#1d1f21'
+set inputbar-fg '#c5c8c6'
+set inputbar-bg '#1d1f21'
+set statusbar-fg '#c5c8c6'
+set statusbar-bg '#1d1f21'
+
+set recolor true
+set recolor-darkcolor '#61a571'
+set recolor-lightcolor '#1d1f21'
+
+set highlight-color '#3d3d42'
+set highlight-active-color '#c5c8c6'
+
+font nitti light 12

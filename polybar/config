@@ -1,0 +1,148 @@
+;;change with theme
+[colors]
+;; original color
+; focused = #61A751
+;; tweaked for polybar
+focused = #68C777
+visible = #373B41
+unfocused = #1D1F21
+urgent = #FB1617
+placeholder = #373B41
+
+
+
+;; right
+[bar/main]
+monitor = HDMI-0
+
+font-0 = Nitti:style=normal:size=12
+font-1 = Font Awesome 5 Free Regular:size=12
+font-2 = Font Awesome 5 Free Solid:size=12
+font-3 = Font Awesome 5 Brands:size=12
+
+border-top-size = 15
+border-left-size = 28
+border-right-size = 28
+height = 30
+radius = 5
+line-size = 2
+background = #FF1D1F21
+
+modules-left = spotify
+modules-center = i3
+modules-right = datetime
+
+
+
+;; left
+[bar/secondary]
+monitor = DP-5
+
+font-0 = Nitti:style=normal:size=12
+font-1 = Font Awesome 5 Free Regular:size=12
+font-2 = Font Awesome 5 Free Solid:size=12
+font-3 = Font Awesome 5 Brands:size=12
+
+border-top-size = 15
+border-left-size = 28
+border-right-size = 28
+height = 30
+radius = 5
+line-size = 2
+background = #FF1D1F21
+
+modules-left = datetime
+modules-center = i3
+modules-right = wlan
+
+;; uncomment below to add applets
+;;tray-position = right
+
+
+;; bottom
+[bar/bottom]
+monitor = HDMI-0
+
+tray-position = left
+tray-padding = 1.5
+wm-restack = i3
+
+
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+index-sort = true
+
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-foreground = ${colors.urgent}
+
+label-focused = %name%
+label-focused-foreground = ${colors.focused}
+label-focused-underline = ${colors.focused}
+label-focused-padding = 1
+
+label-unfocused = %name%
+label-unfocused-foreground = ${colors.focused}
+label-unfocused-underline = ${colors.unfocused}
+label-unfocused-padding = 1
+
+label-visible = %name%
+label-visible-foreground = ${colors.focused}
+label-visible-underline = ${colors.visible}
+label-visible-padding = 1
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.urgent}
+label-urgent-underline = ${colors.urgent}
+label-urgent-padding = 1
+
+
+
+[module/wlan]
+type = internal/network
+interface = wlp4s0
+
+format-connected = <label-connected>
+format-connected-padding = 1.5
+format-disconnected = <label-disconnected>
+format-disconnected-padding = 1.5
+
+;; action tag
+label-connected = %{A1:st -class=floating -e nmtui:} %essid%%{A}
+label-connected-foreground = ${colors.focused}
+
+;; action tag
+label-disconnected = %{A1:st -class=floating -e nmtui:}⚠ No Connection%{A}
+label-disconnected-foreground = ${colors.urgent}
+
+
+
+[module/datetime]
+type = internal/date
+
+label =  %date%    %time%
+label-foreground = ${colors.focused}
+label-padding = 1.5
+
+; ex. "Monday, January 1, 2020 12:00 am"
+date = %A, %B %d, %Y
+time = %I:%M %p
+; ex. "1/1/2020 00:00:00"
+date-alt = %D
+time-alt = %T
+
+
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+format-padding = 1.5
+format-foreground = ${colors.focused}
+label-foreground = ${colors.focused}
+exec = python3 /home/alex/Scripts/spotify_status.py -t 50 -f '{song} - {artist}'
