@@ -4,6 +4,7 @@ set number              " add line numbers
 set nowrap              " turn off automatic wrapping
 set formatoptions-=t    " turn off automatic wrapping when typing
 syntax on
+colorscheme default
 
 set expandtab      " tabs are automatically converted to spaces
 set tabstop=4      " tab is four spaces
