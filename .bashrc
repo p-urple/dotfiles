@@ -133,3 +133,5 @@ s(){
         ~/Scripts/"$1"
     fi
 }
+
+export PATH="$PATH:/home/alex/.cargo/bin"
