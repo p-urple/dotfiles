@@ -43,9 +43,10 @@ gaps top -5
 
 ### window configs ###
 
- ## floating terminal
+ ## floating window settings
 for_window [class="floating"] floating enable
 for_window [class="VirtualBox Machine"] floating enable
+#for_window [instance="Alacritty" floating] resize set 677 395
 
 ### startup apps ###
 
@@ -92,6 +93,7 @@ bindsym Control+Left exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.
 
  ## htop
 bindsym Control+shift+Escape exec st -c floating -e htop
+#bindsym Control+shift+Escape exec "alacritty --class Alacritty,floating -e htop"
 
 
 
@@ -106,9 +108,11 @@ floating_modifier $sup
 
 # start a terminal
 bindsym $sup+Return exec "st -f Nitti-Light:size=10"
+#bindsym $sup+Return exec alacritty
 
 # start a floating terminal
 bindsym $sup+Shift+Return exec "st -f Nitti-Light:size=10 -c floating"
+#bindsym $sup+Shift+Return exec "alacritty --class Alacritty,floating"
 
 # kill focused window
 bindsym $sup+Shift+q kill
