@@ -92,8 +92,14 @@ bindsym Control+Right exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 bindsym Control+Left exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
  ## htop
-bindsym Control+shift+Escape exec st -c floating -e htop
+bindsym Control+shift+Escape exec st -f Nitti-Light:size=10 -c floating -e htop
 #bindsym Control+shift+Escape exec "alacritty --class Alacritty,floating -e htop"
+
+ ## vifm
+bindsym Control+shift+f exec st -f Nitti-Light:size=10 -e vifm
+
+ ## daily planner
+bindsym $sup+p exec google-chrome https://trello.com/b/IQXCQgxW/personal-planner
 
 
 
