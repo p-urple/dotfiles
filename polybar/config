@@ -24,7 +24,7 @@ border-top-size = 15
 border-left-size = 28
 border-right-size = 28
 height = 30
-radius = 5
+;radius = 5
 line-size = 2
 background = #FF1D1F21
 
@@ -47,7 +47,7 @@ border-top-size = 15
 border-left-size = 28
 border-right-size = 28
 height = 30
-radius = 5
+;radius = 5
 line-size = 2
 background = #FF1D1F21
 
