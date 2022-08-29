@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/$(whoami) && git clone https://github.com/Tyson-Chicken-Nuggets/Scripts && echo "isntalled ~/Scripts"
+cd /home/$(whoami) && git clone https://github.com/p-urple/Scripts && echo "isntalled ~/Scripts"
 
 cd /home/$(whoami) && git clone https://github.com/p-urple/st
 cd st && make clean install && echo "installed p-urple/st"

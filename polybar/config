@@ -14,6 +14,7 @@ placeholder = #373B41
 ;; right
 [bar/main]
 monitor = HDMI-0
+enable-ipc = true
 
 font-0 = Nitti:style=normal:size=12;2
 font-1 = Font Awesome 5 Free Regular:size=12;3
@@ -28,7 +29,7 @@ height = 30
 line-size = 2
 background = #FF1D1F21
 
-modules-left = spotify
+modules-left = spotify previous playpause next
 modules-center = i3
 modules-right = datetime
 
