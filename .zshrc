@@ -1,26 +1,17 @@
 # zsh config file
 
 # aliases
-## Detect which `ls` flavor is in use
-## from https://github.com/mathiasbynens/dotfiles/blob/main/.aliases
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
-	export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'     # colors from https://geoff.greer.fm/lscolors/
-else # macOS `ls`
-	colorflag="-G"
-	export LSCOLORS='exfxcxdxbxegedabagacad'																	# colors from https://geoff.greer.fm/lscolors/
-fi
-
-
-alias la="ls -Al ${colorflag}" 				                 # show hidden files
-alias lk="ls -lSr ${colorflag}"             				 # sort by size
-alias lc="ls -lcr ${colorflag}" 				             # sort by change time
-alias lu="ls -lur ${colorflag}"             				 # sort by access time
-alias lr="ls -lR ${colorflag}"              				 # recursive ls
-alias lt="ls -ltr ${colorflag}"   					         # sort by date
-alias lm="ls -al ${colorflag}|more"     				     # pipe through more
-alias l1="ls -1 ${colorflag}"           				     # one-col file list
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"	 # list only directories
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgre --color=auto'
+alias egrep='egrep --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias school='ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no wasylik@linprog.cs.fsu.edu'
+alias sshp='ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no'
+alias scpp='scp -o PreferredAuthentications=password -o PubkeyAuthentication=no'
+alias vio='PROMPT="%B%F{9}violet %~ %#%b%f " && clear'
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 setopt histignorealldups sharehistory
@@ -49,6 +40,9 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
 zstyle ':completion:*' menu select=long

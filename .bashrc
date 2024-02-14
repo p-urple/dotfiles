@@ -133,3 +133,4 @@ s(){
         ~/Scripts/"$1"
     fi
 }
+. "$HOME/.cargo/env"

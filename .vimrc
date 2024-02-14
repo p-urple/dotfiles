@@ -1,5 +1,4 @@
 set nocompatible
-set backspace=indent,eol,start
 filetype off
 set number              " add line numbers
 set nowrap              " turn off automatic wrapping
@@ -46,7 +45,6 @@ Plug 'preservim/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'PhilRunninger/nerdtree-visual-selection'
-Plug 'ackyshake/VimCompletesMe'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'Valloric/YouCompleteMe'
 Plug 'octol/vim-cpp-enhanced-highlight'

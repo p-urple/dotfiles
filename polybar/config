@@ -14,21 +14,22 @@ placeholder = #373B41
 ;; right
 [bar/main]
 monitor = HDMI-0
+enable-ipc = true
 
 font-0 = Nitti:style=normal:size=12;2
 font-1 = Font Awesome 5 Free Regular:size=12;3
 font-2 = Font Awesome 5 Free Solid:size=12;3
 font-3 = Font Awesome 5 Brands:size=12;3
 
-border-top-size = 15
-border-left-size = 28
-border-right-size = 28
+;border-top-size = 15
+;border-left-size = 28
+;border-right-size = 28
 height = 30
 ;radius = 5
 line-size = 2
 background = #FF1D1F21
 
-modules-left = spotify
+modules-left = spotify previous playpause next
 modules-center = i3
 modules-right = datetime
 
@@ -43,9 +44,9 @@ font-1 = Font Awesome 5 Free Regular:size=12;3
 font-2 = Font Awesome 5 Free Solid:size=12;3
 font-3 = Font Awesome 5 Brands:size=12;3
 
-border-top-size = 15
-border-left-size = 28
-border-right-size = 28
+;border-top-size = 15
+;border-left-size = 28
+;border-right-size = 28
 height = 30
 ;radius = 5
 line-size = 2
@@ -53,7 +54,7 @@ background = #FF1D1F21
 
 modules-left = datetime
 modules-center = i3
-modules-right = wlan
+modules-right = wired-network wireless-network 
 
 ;; uncomment below to add applets
 ;;tray-position = right
@@ -102,22 +103,45 @@ label-urgent-padding = 1
 
 
 
-[module/wlan]
+[module/network]
 type = internal/network
 interface = wlp4s0
 
-format-connected = <label-connected>
-format-connected-padding = 1.5
-format-disconnected = <label-disconnected>
-format-disconnected-padding = 1.5
+
+
+[module/wireless-network]
+type = internal/network
+interface = wlp4s0
 
 ;; action tag
 label-connected = %{A1:st -class=floating -e nmtui:} %essid%%{A}
 label-connected-foreground = ${colors.focused}
 
+format-connected = <label-connected>
+format-connected-padding = 1.5
+
 ;; action tag
 label-disconnected = %{A1:st -class=floating -e nmtui:}⚠ No Connection%{A}
 label-disconnected-foreground = ${colors.urgent}
+
+format-disconnected = <label-disconnected>
+format-disconnected-padding = 1.5
+
+
+
+[module/wired-network]
+type = internal/network
+interface = enp0s31f6
+
+;; action tag
+label-connected = %{A1:st -class=floating -e nmtui:}%{A}
+label-connected-foreground = ${colors.focused}
+
+format-connected = <label-connected>
+format-connected-padding = 1.5
+
+format-disconnected = ""
+format-disconnected-padding = 1.5
 
 
 

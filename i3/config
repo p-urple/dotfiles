@@ -35,9 +35,9 @@ font Nitti-Normal:12
 
  ## gaps
 # smart_gaps on
-gaps outer 5
-gaps inner 25
-gaps top -5
+gaps outer 2
+gaps inner 5
+#gaps top -2
 
 
 
@@ -77,7 +77,8 @@ exec --no-startup-id nm-applet
  ## screenshots
 bindsym Control+shift+3 exec ~/Scripts/shot.sh
 bindsym Control+Shift+4 exec ~/Scripts/screenshot.sh
-bindsym Control+Shift+5 exec ~/Scripts/rd
+bindsym Control+Shift+5 exec "~/Scripts/screenshot.sh -s"
+bindsym Control+Shift+6 exec ~/Scripts/rd
 
  ## suspend
 #bindsym $sup+l exec betterlockscreen and systemctl suspend
