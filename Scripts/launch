@@ -1,21 +1,23 @@
 #!/bin/bash
 
+# setup monitors
+xrandr --output HDMI-O --primary --mode 1920x1080 --output DP-5 --mode 1920x1080 --left-of HDMI-0
+
 # kill any currently running processes
-killall -q ckb-next &
-killall -q picom &
-killall -q polybar &
+pkill ckb-next &
+pkill polybar &
+pkill pipewire &
 
 # pause to let processes be killed
 sleep 0.1
 
 # start apps in background
+picom -b --config ~/.config/picom.conf &
+pipewire &
 ckb-next -b &
-picom --experimental-backends --config ~/.config/picom.conf -b &
 polybar main -r &
 polybar secondary -r &
 
 # extra start commands
 #compose key
 xmodemap -e "kysym Insert = Multi_key"
-#start dropbox
-dropbox start

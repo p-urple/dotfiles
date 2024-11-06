@@ -3,7 +3,7 @@ set -eu
 method=slop
 
 shot="Screenshot $(date +"%Y-%m-%d %H:%M:%S").png"
-save=~/Dropbox/Screenshots/$shot
+#save=~/Dropbox/Screenshots/$shot
 
 case $method in
     scrot)
@@ -22,6 +22,6 @@ case $method in
         ;;
 esac
 
-xclip -out -sel clip > "$save"
+xclip -out -sel clip #> "$save"
 
 notify-send "SNAP! Yep. This is going in my cringe compilation."
