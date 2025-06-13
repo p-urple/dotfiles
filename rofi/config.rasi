@@ -43,15 +43,15 @@ configuration {
 }
 
 window {
-    border: 						0px;
-    border-color: 					@ac;
-    border-radius: 					6px;
-    padding: 						15;
+    border: 						1px;
+    border-color: 					@fg;
+    border-radius: 					0px;
+    padding: 						0px;
     width: 							20%;
 }
 
 prompt {
-    spacing: 						0;
+    spacing: 						1;
     border: 						0;
     text-color: 					@fg;
 }
@@ -82,15 +82,15 @@ inputbar {
 
 mainbox {
     border: 						0px;
-    border-color: 					@ac;
-    padding: 						6;
+    border-color: 					@fg;
+    padding: 						5;
 }
 
 listview {
-    fixed-height: 					0;
+    fixed-height: 					1;
     border: 						0px;
-    border-color: 					@ac;
-    spacing: 						4px;
+    border-color: 					@fg;
+    spacing: 						1px;
     scrollbar: 						false;
     padding: 						5px 5px 0px 5px;
 }
