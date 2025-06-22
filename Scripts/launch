@@ -7,9 +7,11 @@ xrandr --output HDMI-O --primary --mode 1920x1080 --output DP-5 --mode 1920x1080
 pkill ckb-next &
 pkill polybar &
 pkill pipewire &
+pkill Discord &
+pkill spotify &
 
 # pause to let processes be killed
-sleep 0.1
+sleep 1
 
 # start apps in background
 picom -b --config ~/.config/picom.conf &
@@ -18,6 +20,7 @@ ckb-next -b &
 polybar main -r &
 polybar secondary -r &
 
-# extra start commands
-#compose key
-xmodemap -e "kysym Insert = Multi_key"
+# start main gui applications
+/usr/share/discord/Discord &
+flatpak run com.spotify.Client &
+firefox --new-window "file:///home/violet/Projects/violetonline.org/landing-page/index.html" &
