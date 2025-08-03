@@ -116,7 +116,7 @@ bindsym $alt+s          exec rofi -show ssh
 bindsym $sup+x          exec ~/dotfiles/Scripts/xpanda
 bindsym $sup+Shift+x    exec ~/dotfiles/Scripts/xpanda -c
 bindsym $alt+x          exec ~/dotfiles/Scripts/xpanda -d
-bindsym $alt+Shift+x          exec ~/dotfiles/Scripts/xpands -D
+bindsym $alt+d          exec ~/dotfiles/Scripts/xpanda -D
 #bindsym $alt+k          exec rofi -show keys
 
 

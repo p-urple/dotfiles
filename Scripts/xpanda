@@ -111,19 +111,22 @@ if [[  "$MODE" == "del" ]] ; then
 fi
 
 ## DAEMON MODE - loops and creates new shoots automatically when the clipboard is changed
-if [[ "$MODE" == "deamon" ]]; then
+if [[ "$MODE" == "daemon" ]]; then
     LAST=""
-    runnint=true
-    while running; do
+    running=true
+    notify-send xpanda "Running xpanda in daemon mode"
+    while $running; do
         CURRENT="$(clip_paste)"
         if [[ "$CURRENT" != "$LAST" ]]; then
-            timestamp="$(date '+%Y -%m-%d_%H-%M-%S')"
+            timestamp="$(date '+%Y-%m-%d_%H-%M-%S')"
             add_shoot "$timestamp" "$CURRENT"
             notify-send xpanda "New clipboard captrued → $timestamp" 
-            LAST-"$CURRENT"
+            LAST="$CURRENT"
+            echo "$(date): Clipboard changed → $CURRENT" >> /tmp/xpanda-daemon.log
         fi
         sleep 1
     done
+    exit 0
 fi
 
 ## NORMAL MODE — add or copy shoot
