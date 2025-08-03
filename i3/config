@@ -34,7 +34,6 @@ for_window [class=".*"] border pixel 1
 
  ## rules
 for_window [class="floating"] floating enable
-for_window [title=".*VIOLET: SYSTEM CORE.*"] move to workspace 1
 for_window [class="discord"] move to workspace 2
 for_window [class="Spotify"] move to workspace 10
 
@@ -53,6 +52,7 @@ exec_always feh --bg-scale ~/dotfiles/DAMN.png
 
  ## launch script -> launches specfic applications every time the config is reloaded
 exec_always --no-startup-id ~/dotfiles/Scripts/launch
+exec_always --no-startup-id i3-msg [title=".*VIOLET: SYSTEM CORE.*"] move to workspace 1
 
  ## lockscreen **marked for removal** -> replace with lock and lock+suspend shortcuts
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -109,11 +109,15 @@ bindsym $sup+Shift+BackSpace exec ~/dotfiles/Scripts/i3-workspace-kill
 #bindsym $sup+d exec --no-startup-id i3-dmenu-desktop
 
 # rofi
-bindsym $sup+d       exec rofi -show drun
-bindsym $sup+Shift+d exec rofi -show run
-bindsym $alt+w       exec rofi -show window
-bindsym $alt+s       exec rofi -show ssh
-# bindsym $alt+k       exec rofi -show keys
+bindsym $sup+d          exec rofi -show drun
+bindsym $sup+Shift+d    exec rofi -show run
+bindsym $alt+w          exec rofi -show window
+bindsym $alt+s          exec rofi -show ssh
+bindsym $sup+x          exec ~/dotfiles/Scripts/xpanda
+bindsym $sup+Shift+x    exec ~/dotfiles/Scripts/xpanda -c
+bindsym $alt+x          exec ~/dotfiles/Scripts/xpanda -d
+bindsym $alt+Shift+x          exec ~/dotfiles/Scripts/xpands -D
+#bindsym $alt+k          exec rofi -show keys
 
 
 

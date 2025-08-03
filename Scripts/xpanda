@@ -68,16 +68,16 @@ shoot_val() {
 }
 
 ## MODE FLAGS
-clip_mode=false
-del_mode=false
+MODE=""
 
 case "$1" in
-    -c|--clip) clip_mode=true; shift ;;
-    -d|--del|--delete) del_mode=true; shift ;;
+    -c|--clip) MODE="clip"; shift ;;
+    -d|--del|--delete) MODE="del"; shift ;;
+    -D|--daemon) MODE="daemon"; shift ;;
 esac
 
 ## CLIP MODE — store clipboard into new shoot or copy existing
-if $clip_mode; then
+if [[ "$MODE" == "clip" ]]; then
     keyname="$(shoot_key "$(search_shoots)")"
     [[ -z "$keyname" ]] && exit 1
     value="$(clip_paste)"
@@ -95,7 +95,7 @@ if $clip_mode; then
 fi
 
 ## DELETE MODE — prompt and delete selected shoot
-if $del_mode; then
+if [[  "$MODE" == "del" ]] ; then
     selection="$(search_shoots)"
     gkey="$(shoot_key "$selection")"
     [[ -z "$gkey" ]] && notify-send xpanda "No shoot selected." && exit 1
@@ -108,6 +108,22 @@ if $del_mode; then
         notify-send xpanda "Shoot $gkey not found — nothing removed"
     fi
     exit 0
+fi
+
+## DAEMON MODE - loops and creates new shoots automatically when the clipboard is changed
+if [[ "$MODE" == "deamon" ]]; then
+    LAST=""
+    runnint=true
+    while running; do
+        CURRENT="$(clip_paste)"
+        if [[ "$CURRENT" != "$LAST" ]]; then
+            timestamp="$(date '+%Y -%m-%d_%H-%M-%S')"
+            add_shoot "$timestamp" "$CURRENT"
+            notify-send xpanda "New clipboard captrued → $timestamp" 
+            LAST-"$CURRENT"
+        fi
+        sleep 1
+    done
 fi
 
 ## NORMAL MODE — add or copy shoot
