@@ -117,6 +117,7 @@ bindsym $sup+x          exec ~/dotfiles/Scripts/xpanda
 bindsym $sup+Shift+x    exec ~/dotfiles/Scripts/xpanda -c
 bindsym $alt+x          exec ~/dotfiles/Scripts/xpanda -d
 bindsym $alt+d          exec pkill xpanda && ~/dotfiles/Scripts/xpanda -D &
+bindsym $alt+e          exec ~/dotfiles/Scripts/xpanda -e
 #bindsym $alt+k          exec rofi -show keys
 
 

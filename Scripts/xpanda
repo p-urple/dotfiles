@@ -74,6 +74,7 @@ case "$1" in
     -c|--clip) MODE="clip"; shift ;;
     -d|--del|--delete) MODE="del"; shift ;;
     -D|--daemon) MODE="daemon"; shift ;;
+    -e|--edit) MODE="edit"; shift ;;
 esac
 
 ## CLIP MODE — store clipboard into new shoot or copy existing
@@ -126,6 +127,41 @@ if [[ "$MODE" == "daemon" ]]; then
         fi
         sleep 1
     done
+    exit 0
+fi
+
+## EDIT MODE - change the title of existing shoots
+if [[ "$MODE" == "edit" ]]; then
+    notify-send xpanda "Entering editing mode"
+    selection="$(search_shoots)"
+    oldkey="$(shoot_key "$selection")"
+    oldval="$(get_shoot "$oldkey")"
+
+    [[ -z "$oldkey" || -z "$oldval" ]] && notify-send xpanda "No valid shoot selected." && exit 1
+
+    # inline editing: prompt for both new key and value
+    edit_input="$(echo "$oldkey | $oldval" | rofi -dmenu -p "Edit: key | value")"
+    newkey="$(shoot_key "$edit_input")"
+    newval="$(shoot_val "$edit_input")"
+
+    [[ -z "$newkey" || -z "$newval" ]] && notify-send xpanda "No changes made." && exit 1
+
+    # skip if unchanged
+    if [[ "$newkey" == "$oldkey" && "$newval" == "$oldval" ]]; then
+        notify-send xpanda "No changes made to '$oldkey'."
+        exit 1
+    fi
+
+    # check for key conflict
+    if [[ "$newkey" == "$oldkey" ]]; then
+        notify-send xpanda "Shoot '$newkey' already exists. Edit cancelled."
+        exit 1
+    fi
+
+    # Apply changes
+    add_shoot "$newkey" "$newval"
+    del_shoot "$oldkey"
+    notify-send xpanda "Updated: '$oldkey' → '$newkey' with new value"
     exit 0
 fi
 
