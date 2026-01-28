@@ -1,0 +1,119 @@
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#373b41"
+blue = "#61a571"
+cyan = "#61a571"
+green = "#61a571"
+magenta = "#61a571"
+red = "#61a571"
+white = "#61a571"
+yellow = "#61a571"
+
+[colors.normal]
+black = "#282a2e"
+blue = "#9ca2ab"
+cyan = "#bec5cb"
+green = "#4f4f53"
+magenta = "#adacb6"
+red = "#3d3d42"
+white = "#dcddde"
+yellow = "#777777"
+
+[colors.primary]
+background = "#1c1f1f"
+foreground = "#c5c8c6"
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "Nitti"
+style = "Bold"
+
+[font.italic]
+family = "Nitti"
+style = "Normal"
+
+[font.normal]
+family = "Nitti"
+style = "Light"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = 0
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001Bj"
+key = "J"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bk"
+key = "K"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bh"
+key = "H"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bl"
+key = "L"
+mods = "Alt"
+
+[scrolling]
+history = 100
+multiplier = 2
+
+[window]
+decorations = "Buttonless"
+dynamic_padding = true
+opacity = 0.9
+blur = true
+
+[window.dimensions]
+columns = 84
+lines = 28
+
+[window.padding]
+x = 4
+y = 4
+
+[general]
+live_config_reload = true
