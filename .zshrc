@@ -8,7 +8,7 @@ alias egrep='egrep --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias ct='cat ~/Dropbox/github_token.txt | xclip -sel clip'
+alias ct='cat ~/Dropbox/github_token.txt | xclip -sel clip && echo "token copied"'
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 setopt histignorealldups sharehistory
