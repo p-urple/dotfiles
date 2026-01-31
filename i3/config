@@ -90,10 +90,12 @@ floating_modifier $sup
 # start a terminal
 #bindsym $sup+Return exec "st -f Nitti-Light:size=10"
 bindsym $sup+Return exec alacritty
+bindsym XF86Calculator exec alacritty
 
 # start a floating terminal
 #bindsym $sup+Shift+Return exec "st -f Nitti-Light:size=10 -c floating"
 bindsym $sup+Shift+Return exec "alacritty --class floating,Alacritty"
+bindsym Shift+XF86Calculator exec "alacritty --class floating,Alacritty"
 
 # kill focused window
 bindsym $sup+Shift+q kill
@@ -101,9 +103,14 @@ bindsym $sup+BackSpace kill
 # kill all windows on focused workspace
 bindsym $sup+Shift+BackSpace exec ~/dotfiles/Scripts/i3-workspace-kill
 
+# volume keys
+bindsym XF86AudioMute exec ~/dotfiles/Scripts/volume -m 
+bindsym XF86AudioLowerVolume exec ~/dotfiles/Scripts/volume -l
+bindsym XF86AudioRaiseVolume exec ~/dotfiles/Scripts/volume -r
+
 # start dmenu (a program launcher)
 # bindsym $sup+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
+# There also is the (new) i3-dmenu-desktop which only dispwpctl set-volume @DEFAULT_SINK@ 5%+ && notify-send '$(wpctl get-volume @DEFAULT_SINK@)'lays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $sup+d exec --no-startup-id i3-dmenu-desktop

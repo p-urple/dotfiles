@@ -1,0 +1,53 @@
+#!/bin/zsh
+
+SINK="@DEFAULT_AUDIO_SINK@" 
+STEP="5%"
+
+# helpers
+
+get_volume() {
+    wpctl get-volume "$SINK"
+}
+
+send_notification() {
+    local vol muted percent
+    
+    vol=$(get_volume)
+
+    if [[ "$vol" == *"[MUTED]"* ]]; then
+        muted="Muted"
+        percent="0"
+    else 
+        muted=""
+        percent=$(echo "$vol" | awk '{printf "%.0f", $2 * 100}')
+    fi
+
+    notify-send \
+        -h string:x-canonical-private-synchronous:volume \
+        -t 1500 \
+        "Volume" \
+        "$percent% $muted"
+}
+
+# handle args
+
+while getopts "mlr" opt; do
+    case "$opt" in
+        m)
+            wpctl set-mute "$SINK" toggle
+            send_notification
+            ;;
+        l)
+            wpctl set-volume "$SINK" "$STEP"- --limit 0.0
+            send_notification
+            ;;
+        r)
+            wpctl set-volume "$SINK" "$STEP"+ --limit 1.0
+            send_notification
+            ;;
+        *)
+            echo "usage: $0 [-m] [-l] [-r]"
+            exit 1
+            ;;
+    esac
+done
